@@ -67,7 +67,7 @@ Bạn là một nhà khoa học dữ liệu làm việc cho Cục Bảo vệ Mô
 
 ### **1. Machine Learning vượt trội Time Series gấp 4 lần**
 
-![Dashboard tổng hợp](final_dashboard_vi.png)
+![Dashboard tổng hợp](./reports/final_dashboard_vi.png)
 
 **Tại sao?**
 - ARIMA chỉ dùng **past PM2.5** → bỏ lỡ weather, pollutants signals
