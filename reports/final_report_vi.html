@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Dự Án PM2.5 Forecasting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #667eea;
+            color: white;
+        }
+        .metric {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: #fffacd;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌫️ BÁO CÁO DỰ ÁN</h1>
+        <h2>Dự Báo Chất Lượng Không Khí PM2.5 tại Bắc Kinh</h2>
+        <p>Ngày: 07/01/2026 00:38</p>
+    </div>
+
+    <div class="section">
+        <h2>📋 Executive Summary</h2>
+        <p>Dự án thành công xây dựng hệ thống dự báo PM2.5 với độ chính xác cao, giảm sai số <strong>36.2%</strong> so với baseline.</p>
+
+        <div class="metric">
+            <div class="metric-value">16.2</div>
+            <div class="metric-label">RMSE (μg/m³)</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">0.980</div>
+            <div class="metric-label">R² Score</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">36.2%</div>
+            <div class="metric-label">Cải thiện</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Kết Quả Chi Tiết</h2>
+        <h3>Q1: So sánh Baseline Models</h3>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>RMSE</th>
+                <th>MAE</th>
+                <th>R²</th>
+            </tr>
+            <tr>
+                <td><strong>Random Forest</strong></td>
+                <td>25.33</td>
+                <td>12.32</td>
+                <td>0.949</td>
+            </tr>
+            <tr>
+                <td>ARIMA(1,0,1)</td>
+                <td>104.10</td>
+                <td>77.69</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <div class="highlight">
+            ✅ <strong>Kết luận Q1:</strong> Random Forest vượt trội ARIMA 75% về RMSE nhờ tận dụng nhiều features.
+        </div>
+
+        <h3>Q2: Model Improvement</h3>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>RMSE</th>
+                <th>MAE</th>
+                <th>R²</th>
+                <th>Cải thiện (%)</th>
+            </tr>
+            <table style="display:none" class="dataframe" id="">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>R²</th>
+      <th>Improvement (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Baseline RF</td>
+      <td>25.326727</td>
+      <td>12.323158</td>
+      <td>0.949151</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>XGBoost</td>
+      <td>17.603929</td>
+      <td>8.686018</td>
+      <td>0.976668</td>
+      <td>30.492681</td>
+    </tr>
+    <tr>
+      <td>LightGBM</td>
+      <td>16.161252</td>
+      <td>8.314115</td>
+      <td>0.980335</td>
+      <td>36.188944</td>
+    </tr>
+  </tbody>
+</table>
+            <tr>
+                <td>Baseline RF</td>
+                <td>25.33</td>
+                <td>12.32</td>
+                <td>0.949</td>
+                <td>0.0%</td>
+            </tr>
+            <tr>
+                <td>XGBoost</td>
+                <td>17.60</td>
+                <td>8.69</td>
+                <td>0.977</td>
+                <td>30.5%</td>
+            </tr>
+            <tr style="background: #e8f5e9;">
+                <td><strong>LightGBM 🏆</strong></td>
+                <td><strong>16.16</strong></td>
+                <td><strong>8.31</strong></td>
+                <td><strong>0.980</strong></td>
+                <td><strong>36.2%</strong></td>
+            </tr>
+        </table>
+
+        <div class="highlight">
+            🏆 <strong>Best Model:</strong> LightGBM với RMSE=16.16, cải thiện 36.2%
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Visualizations</h2>
+        <img src="final_dashboard_vi.png" alt="Dashboard">
+        <img src="final_insights_vi.png" alt="Insights">
+    </div>
+
+    <div class="section">
+        <h2>💡 Khuyến Nghị</h2>
+        <h3>Cho Production:</h3>
+        <ul>
+            <li>✅ Deploy <strong>LightGBM</strong> làm model chính</li>
+            <li>✅ Retrain model định kỳ (hàng tháng)</li>
+            <li>✅ Monitor RMSE/MAE trên production data</li>
+            <li>✅ Setup alert khi PM2.5 > 150 μg/m³</li>
+        </ul>
+
+        <h3>Cải thiện tiếp theo:</h3>
+        <ul>
+            <li>Ensemble nhiều models (stacking)</li>
+            <li>Thêm data từ 11 trạm còn lại</li>
+            <li>Multi-step forecasting (24h, 48h)</li>
+            <li>Feature engineering nâng cao</li>
+        </ul>
+    </div>
+
+    <div class="section" style="text-align: center; color: #666;">
+        <p>📧 Contact: your.email@example.com | 🌐 GitHub: github.com/ngocanh616/air_quality_timeseries</p>
+        <p>Generated on 07/01/2026 00:38:48</p>
+    </div>
+</body>
+</html>
