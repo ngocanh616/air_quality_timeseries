@@ -1,0 +1,42 @@
+
+═══════════════════════════════════════════════════════════════════
+                    🎯 KẾT LUẬN SO SÁNH MÔ HÌNH BASELINE
+═══════════════════════════════════════════════════════════════════
+
+📌 **MÔ HÌNH CHIẾN THẮNG: Random Forest Regressor**
+
+🔍 **Phát hiện chính:**
+
+1️⃣ Chỉ số hiệu suất:
+   ├─ Random Forest:  RMSE = 25.3, MAE = 12.3, R² = 0.949
+   └─ ARIMA(1,0,1):   RMSE = 104.1, MAE = 77.7
+   
+   ✅ RF vượt trội hơn ARIMA 76% (RMSE) và 84% (MAE)
+
+2️⃣ Tại sao Random Forest thắng:
+   ✓ Tận dụng 8+ đặc trưng (PM2.5 trễ, nhiệt độ, độ ẩm, gió, v.v.)
+   ✓ Bắt được mối quan hệ phi tuyến giữa thời tiết và ô nhiễm
+   ✓ Xử lý dữ liệu thiếu & ngoại lệ tốt hơn
+   ✓ Dự đoán ổn định hơn (phân phối lỗi hẹp hơn)
+   
+3️⃣ Tại sao ARIMA kém hơn:
+   ✗ Chỉ dùng chuỗi thời gian đơn biến PM2.5 (bỏ qua thời tiết)
+   ✗ Giả định mô hình tuyến tính (PM2.5 có tính mùa vụ phức tạp)
+   ✗ Nhạy cảm với ngoại lệ & dữ liệu thiếu
+   ✗ Yêu cầu dữ liệu dừng (PM2.5 có xu hướng biến đổi)
+
+📊 **Trường hợp sử dụng:**
+   • **Random Forest** → Mô hình dự báo chính cho sản xuất
+   • **ARIMA** → Baseline cho mục đích giáo dục/so sánh
+
+🚀 **Các bước tiếp theo:**
+   1. Điều chỉnh siêu tham số cho RF (GridSearchCV)
+   2. Thử Gradient Boosting (XGBoost/LightGBM) để cải thiện thêm
+   3. Thêm đặc trưng: rolling std, tương tác lag, mã hóa thời gian
+   4. Ensemble: Kết hợp RF + XGBoost cho dự đoán mạnh mẽ
+
+═══════════════════════════════════════════════════════════════════
+Tạo ngày: 2026-01-06 23:27:17
+Trạm đo: Aotizhongxin
+Biến dự báo: PM2.5
+═══════════════════════════════════════════════════════════════════
